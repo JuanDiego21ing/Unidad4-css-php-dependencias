@@ -1,3 +1,50 @@
-.container{
-    background: gray;
+@main-color: #fff;
+@font-color: #7f4400;
+
+@colors: green, red, yellow, purple, orange;
+
+.personalizado(@bg; @color; @border) {
+    background-color: @bg;
+    color: @color;
+    & when (@border = true) {
+        border-style: dotted;
+    }
+}
+.container {
+    background: rgb(82, 157, 211);
+    border-radius: 10px;
+    width: 30%;
+    margin: auto;
+    color: @font-color;
+    padding: 20px;
+
+    li:nth-child(1) {
+        .personalizado(rgb(77, 77, 255), black, true);
+    }
+    li:nth-child(2) {
+        .personalizado(rgb(255, 103, 103), rgb(0, 0, 0), true);
+    }
+    li:nth-child(3) {
+        .personalizado(yellow, black, true);
+    }
+    li:nth-child(4) {
+        .personalizado(rgb(180, 83, 180), rgb(0, 0, 0), true);
+    }
+
+    input[type="checkbox"] {
+        appearance: none;
+        width: 20px;
+        height: 20px;
+        border: 1px solid @font-color;
+        cursor: pointer;
+        margin-right: 10px;
+
+        &:checked {
+            background-color: @font-color;
+        }
+
+        &:hover {
+            border-color: darken(@font-color, 20%);
+        }
+    }
 }

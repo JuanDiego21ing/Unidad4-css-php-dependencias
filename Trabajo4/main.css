@@ -1,3 +1,42 @@
 .container {
-  background: gray;
+  background: #529dd3;
+  border-radius: 10px;
+  width: 30%;
+  margin: auto;
+  color: #7f4400;
+  padding: 20px;
+}
+.container li:nth-child(1) {
+  background-color: #4d4dff;
+  color: black;
+  border-style: dotted;
+}
+.container li:nth-child(2) {
+  background-color: #ff6767;
+  color: #000000;
+  border-style: dotted;
+}
+.container li:nth-child(3) {
+  background-color: yellow;
+  color: black;
+  border-style: dotted;
+}
+.container li:nth-child(4) {
+  background-color: #b453b4;
+  color: #000000;
+  border-style: dotted;
+}
+.container input[type="checkbox"] {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #7f4400;
+  cursor: pointer;
+  margin-right: 10px;
+}
+.container input[type="checkbox"]:checked {
+  background-color: #7f4400;
+}
+.container input[type="checkbox"]:hover {
+  border-color: #190d00;
 }

@@ -1,16 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="main.css">
-</head>
-<body>
-
+    <link rel="stylesheet" href="main.css" />
+  </head>
+  <body>
     <div class="container">
-        <h1>hola mundo</h1>
+      <h1>Hola Mundo</h1>
+
+      <form action="">
+        <fieldset>
+          <legend>Formulario</legend>
+        </fieldset>
+
+        <fieldset>
+          <legend>Correo</legend>
+          <input type="email" id="email" name="email" required />
+        </fieldset>
+
+        <fieldset>
+          <legend>Contraseña</legend>
+          <input type="password" id="password" name="password" required />
+        </fieldset>
+
+        <div>
+          <ul>
+            <li>
+              <input type="checkbox" id="frontend" name="role" />
+              <label for="frontend">Front-end</label>
+            </li>
+
+            <li>
+              <input type="checkbox" id="backend" name="role" />
+              <label for="backend">Back-end</label>
+            </li>
+
+            <li>
+              <input type="checkbox" id="qa" name="role" />
+              <label for="qa">QA</label>
+            </li>
+
+            <li>
+              <input type="checkbox" id="devops" name="role" />
+              <label for="devops">DevOps</label>
+            </li>
+          </ul>
+        </div>
+
+        <fieldset>
+          <button type="submit">Acceder</button>
+        </fieldset>
+      </form>
     </div>
-    
-</body>
+  </body>
 </html>
