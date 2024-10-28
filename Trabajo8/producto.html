@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Producto</title>
+    <title>Detalles del Producto</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -12,40 +12,59 @@
       .navbar {
         background-color: #007bff;
       }
-
       .navbar-brand,
       .nav-link {
         color: white !important;
       }
-
-      .carousel-container {
-        width: 700px;
-        height: 500px;
-        overflow: hidden;
+      .card {
+        margin: auto;
+        width: 60%;
+        background-color: #f8f9fa;
+        border: none;
       }
-
-      .product-carousel img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
+      .card-header {
+        background-color: #007bff;
+        color: white;
+        text-align: center;
       }
-
-      .featured-content {
+      .card-body {
         display: flex;
-        align-items: center;
-        justify-content: space-between;
+        gap: 20px;
+        align-items: flex-start;
+        background-color: #ffffff;
+        border-radius: 5px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
       }
-
-      .text-container {
-        margin-left: 20px;
-        flex-grow: 1;
+      .card img {
+        height: 300px;
+        width: 300px;
+        object-fit: cover;
+        background-color: #e9ecef;
+        border-radius: 5px;
+      }
+      .info-container {
+        flex: 1;
+      }
+      .sidebar {
+        background-color: #343a40;
+        min-height: 100vh;
+        color: white;
+      }
+      .sidebar button {
+        color: white;
+        border-color: white;
+        margin-bottom: 10px;
+      }
+      .sidebar button:hover {
+        background-color: #495057;
       }
     </style>
   </head>
+
   <body>
     <nav class="navbar navbar-expand-lg">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">Navbar</a>
+        <a class="navbar-brand" href="home.html">Navbar</a>
         <button
           class="navbar-toggler"
           type="button"
@@ -60,7 +79,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ms-auto">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="index.html"
+              <a class="nav-link active" aria-current="page" href="home.html"
                 >Home</a
               >
             </li>
@@ -78,109 +97,72 @@
       </div>
     </nav>
 
-    <div class="card mt-4">
-      <div class="card-header">Featured</div>
-      <div class="card-body">
-        <div class="featured-content">
-          <div class="carousel-container">
-            <div
-              id="productCarousel"
-              class="carousel slide product-carousel"
-              data-bs-ride="carousel"
-            >
-              <div class="carousel-inner">
-                <div class="carousel-item active">
-                  <img
-                    src="https://via.placeholder.com/800x400"
-                    class="d-block w-100"
-                    alt="Imagen del Producto 1"
-                  />
-                </div>
-                <div class="carousel-item">
-                  <img
-                    src="https://via.placeholder.com/800x400"
-                    class="d-block w-100"
-                    alt="Imagen del Producto 2"
-                  />
-                </div>
-                <div class="carousel-item">
-                  <img
-                    src="https://via.placeholder.com/800x400"
-                    class="d-block w-100"
-                    alt="Imagen del Producto 3"
-                  />
-                </div>
-              </div>
-              <button
-                class="carousel-control-prev"
-                type="button"
-                data-bs-target="#productCarousel"
-                data-bs-slide="prev"
-              >
-                <span
-                  class="carousel-control-prev-icon"
-                  aria-hidden="true"
-                ></span>
-                <span class="visually-hidden">Previous</span>
-              </button>
-              <button
-                class="carousel-control-next"
-                type="button"
-                data-bs-target="#productCarousel"
-                data-bs-slide="next"
-              >
-                <span
-                  class="carousel-control-next-icon"
-                  aria-hidden="true"
-                ></span>
-                <span class="visually-hidden">Next</span>
-              </button>
-            </div>
-          </div>
-          <div class="text-container">
-            <h5 class="card-title">Special title treatment</h5>
-            <p class="card-text">
-              With supporting text below as a natural lead-in to additional
-              content.
-            </p>
-            <a href="#" class="btn btn-primary mt-4">Go somewhere</a>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-2 sidebar p-4">
+          <h5 class="mb-4">Sidebar Menu</h5>
+          <button class="btn btn-outline-light w-100">Dashboard</button>
+          <button class="btn btn-outline-light w-100">Profile</button>
+          <button class="btn btn-outline-light w-100">Settings</button>
+          <button class="btn btn-outline-light w-100">Logout</button>
+        </div>
+        <div class="col-md-10 mt-5">
+          <div id="product-details" class="card">
+            <div class="card-header">Detalles del Producto</div>
+            <div class="card-body"></div>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="container product-table">
-      <h3 class="mt-4">Table</h3>
-      <table class="table">
-        <thead>
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">First</th>
-            <th scope="col">Last</th>
-            <th scope="col">Handle</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td colspan="2">Larry the Bird</td>
-            <td>@twitter</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+    <script>
+      const urlParams = new URLSearchParams(window.location.search);
+      const productSlug = urlParams.get("slug");
+
+      if (productSlug) {
+        fetch(`app/Details.php?slug=${productSlug}`)
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return response.json();
+          })
+          .then((product) => {
+            const data = product.data;
+            const productDetails = document.querySelector(".card-body");
+
+            productDetails.innerHTML = `
+              <img src="${
+                data.cover || "https://via.placeholder.com/300"
+              }" alt="Imagen del producto">
+              <div class="info-container">
+                <h5 class="card-title">${
+                  data.name || "Producto sin nombre"
+                }</h5>
+                <p class="card-text"><strong>Descripción:</strong> ${
+                  data.description || "Descripción no disponible"
+                }</p>
+                <p class="card-text"><strong>Marca:</strong> ${
+                  data.brand?.name || "Marca no disponible"
+                }</p>
+                <p class="card-text"><strong>Categorías:</strong> ${
+                  data.categories?.map((cat) => cat.name).join(", ") ||
+                  "Categorías no disponibles"
+                }</p>
+                <p class="card-text"><strong>Etiquetas:</strong> ${
+                  data.tags?.map((tag) => tag.name).join(", ") ||
+                  "Etiquetas no disponibles"
+                }</p>
+              </div>
+            `;
+          })
+          .catch((error) =>
+            console.error("Error al cargar los detalles del producto:", error)
+          );
+      } else {
+        console.error("No se especificó un slug de producto en la URL.");
+      }
+    </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
   </body>
