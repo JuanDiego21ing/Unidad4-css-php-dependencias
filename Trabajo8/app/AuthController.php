@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if (empty($email) || empty($password)) {
         $_SESSION['error'] = "Por favor, complete todos los campos.";
-        header("Location: /unidad4-Trabajos/Trabajo8/index.html");
+        header("Location: /Unidad4-css-php-dependencias/Trabajo8/index.html");
         exit();
     }
 
@@ -21,11 +21,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $_SESSION['user'] = $response['data']['email'];  
         $_SESSION['token'] = $response['data']['token'];  
 
-        header("Location: /unidad4-Trabajos/Trabajo8/home.html");  
+        header("Location: /Unidad4-css-php-dependencias/Trabajo8/home.html");  
         exit();  
     } else {
         $_SESSION['error'] = $response['message'] ?? "Credenciales incorrectas.";
-        header("Location: /unidad4-Trabajos/Trabajo8/index.html");  
+        header("Location: /Unidad4-css-php-dependencias/Trabajo8/index.html");  
         exit();
     }
 }
@@ -50,13 +50,12 @@ function login($email, $password) {
 
     $response = curl_exec($curl);
 
-
-    if (curl_errno($curl)) {
-        echo 'Error cURL: ' . curl_error($curl);
+    if ($response === false) {
+        error_log('Error cURL: ' . curl_error($curl));
+        curl_close($curl);
+        return ['code' => 0, 'message' => 'Error en la conexión con el servidor de autenticación'];
     }
 
     curl_close($curl);
-
-    return json_decode($response, true);  
+    return json_decode($response, true);
 }
-
