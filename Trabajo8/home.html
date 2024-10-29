@@ -118,7 +118,7 @@
               data-bs-toggle="modal"
               data-bs-target="#editModal"
             >
-              Añadir
+              Añadir Producto
             </button>
           </div>
 
@@ -137,9 +137,7 @@
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="editModalLabel">
-              Formulario de Edición
-            </h5>
+            <h5 class="modal-title" id="editModalLabel">Agregar Producto</h5>
             <button
               type="button"
               class="btn-close"
@@ -147,37 +145,51 @@
               aria-label="Close"
             ></button>
           </div>
+
           <div class="modal-body">
-            <form>
+            <form id="productForm">
               <div class="mb-3">
                 <label for="formName" class="form-label">Nombre</label>
                 <input
+                  name="name"
                   type="text"
                   class="form-control"
                   id="formName"
-                  placeholder="Ingresa el nombre"
+                  required
                 />
               </div>
               <div class="mb-3">
-                <label for="formDescription" class="form-label"
-                  >Descripción</label
-                >
-                <textarea
-                  class="form-control"
-                  id="formDescription"
-                  rows="3"
-                  placeholder="Ingresa la descripción"
-                ></textarea>
-              </div>
-              <div class="mb-3">
-                <label for="formImage" class="form-label"
-                  >URL de la imagen</label
-                >
+                <label for="formSlug" class="form-label">Slug</label>
                 <input
+                  name="slug"
                   type="text"
                   class="form-control"
-                  id="formImage"
-                  placeholder="Ingresa la URL de la imagen"
+                  id="formSlug"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="formDescripcion" class="form-label"
+                  >Descripción</label
+                >
+                <input
+                  name="description"
+                  type="text"
+                  class="form-control"
+                  id="formDescripcion"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="formFeatures" class="form-label"
+                  >Características</label
+                >
+                <input
+                  name="features"
+                  type="text"
+                  class="form-control"
+                  id="formFeatures"
+                  required
                 />
               </div>
             </form>
@@ -190,7 +202,11 @@
             >
               Cerrar
             </button>
-            <button type="button" class="btn btn-primary">
+            <button
+              type="button"
+              class="btn btn-primary"
+              id="saveProductButton"
+            >
               Guardar cambios
             </button>
           </div>
@@ -199,7 +215,6 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         fetch("app/ProductController.php")
@@ -236,6 +251,31 @@
           .catch((error) =>
             console.error("Error al cargar los productos:", error)
           );
+
+        document
+          .getElementById("saveProductButton")
+          .addEventListener("click", function () {
+            const formData = {
+              name: document.getElementById("formName").value,
+              slug: document.getElementById("formSlug").value,
+              description: document.getElementById("formDescripcion").value,
+              features: document.getElementById("formFeatures").value,
+            };
+
+            fetch("app/ProductController.php", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify(formData),
+            })
+              .then((response) => response.json())
+              .then((data) => {
+                alert("Producto agregado correctamente");
+                location.reload();
+              })
+              .catch((error) =>
+                console.error("Error al agregar el producto:", error)
+              );
+          });
       });
     </script>
   </body>
